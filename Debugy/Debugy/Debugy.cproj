@@ -150,6 +150,12 @@
     <Compile Include="lcd.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="LcdDisplay.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LcdDisplay.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="lcd_i2cmaster.c">
       <SubType>compile</SubType>
     </Compile>

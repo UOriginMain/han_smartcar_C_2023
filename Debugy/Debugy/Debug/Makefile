@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../LcdDisplay.c \
 ../lcd_i2cmaster.c \
 ../main.c \
 ../Millis.c \
@@ -50,24 +51,28 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+LcdDisplay.o \
 lcd_i2cmaster.o \
 main.o \
 Millis.o \
 twimaster.o
 
 OBJS_AS_ARGS +=  \
+LcdDisplay.o \
 lcd_i2cmaster.o \
 main.o \
 Millis.o \
 twimaster.o
 
 C_DEPS +=  \
+LcdDisplay.d \
 lcd_i2cmaster.d \
 main.d \
 Millis.d \
 twimaster.d
 
 C_DEPS_AS_ARGS +=  \
+LcdDisplay.d \
 lcd_i2cmaster.d \
 main.d \
 Millis.d \
@@ -87,6 +92,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./LcdDisplay.o: .././LcdDisplay.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./lcd_i2cmaster.o: .././lcd_i2cmaster.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

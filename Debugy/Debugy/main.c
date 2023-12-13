@@ -6,12 +6,12 @@
  */ 
 
 #include <avr/io.h>
+#include <stdio.h>
+
 #include "Millis.h"
+#include "lcdDisplay.h"
 
 
-#include <util/delay.h>
-#include "lcd.h"
-extern void lcd_backlight(char on);    //not in lcd.h
 
 
 void buttonsInit();
@@ -28,25 +28,21 @@ int main(void)
     /* Replace with your application code */
 	buttonsInit();
 	millis_init();
-	lcd_init(LCD_ON_DISPLAY);
-	lcd_backlight(1);
+	lcdDisplayInit();
+	
+	char milli[10 + sizeof(char)];
+	
 	
 	DDRB |= (1<<DDB5);
-	long milli = 0;
-	
     while (1) 
     {
 		selectMode();
 		
-		lcd_clrscr();
-		lcd_gotoxy(5, 0);
-		lcd_puts("Hello World");
-		lcd_gotoxy(1, 1);
-		lcd_puts("Hoi");
-		lcd_puts(milli);
-		_delay_ms(1000);
 		
-		milli = millis();
+		
+		
+	
+		sprintf(milli, "%ld", millis());
 		
     }
 }
