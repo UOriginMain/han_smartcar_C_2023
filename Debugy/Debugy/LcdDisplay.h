@@ -11,6 +11,7 @@
 
 void lcdDisplayInit(void);
 void printWelcomeScreen(void);
+void printModeScreen(int);
 
 
 
