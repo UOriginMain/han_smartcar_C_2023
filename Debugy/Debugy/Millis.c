@@ -15,16 +15,16 @@ void millis_init(void)
 	// T_events = T_CPU * N * (TOP + 1)
 	// = 1/16 MHz * 64 * (249 + 1)
 	// = 1 ms
-	TCCR0A |= (1<<WGM01);
-	TCCR0B |= (1<<CS01) | (1<<CS00);
-	OCR0A = 249;
+	TCCR2A |= (1<<WGM01);
+	TCCR2B |= (1<<CS01) | (1<<CS00);
+	OCR2A = 249;
 	// Timer/Counter0 Output Compare Match A Interrupt Enable
-	TIMSK0 |= (1<<OCIE0A);
+	TIMSK2 |= (1<<OCIE0A);
 }
 
 // Interrupt Service Routine that is automatically executed as soon as
 // timer/counter 0 has reached its compare value
-ISR(TIMER0_COMPA_vect)
+ISR(TIMER2_COMPA_vect)
 {
 	ms++;
 }

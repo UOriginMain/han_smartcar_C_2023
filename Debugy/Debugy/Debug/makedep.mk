@@ -12,5 +12,9 @@ main.c
 
 Millis.c
 
+RemoteControl.c
+
+SoftSerial.c
+
 twimaster.c
 
