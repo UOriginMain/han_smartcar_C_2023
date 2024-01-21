@@ -8,7 +8,7 @@
 #include <avr/io.h>
 #include "lcd.h"
 
-enum Modes {Slave, Bluetooth, Autonoom};
+enum Modes {Slave, Bluetooth, Autonoom};	
 
 extern void lcd_backlight(char on);    //not in lcd.h
 

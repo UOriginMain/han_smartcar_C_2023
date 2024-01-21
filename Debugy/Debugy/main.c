@@ -16,16 +16,22 @@
 enum Modes {Slave, Bluetooth, Autonoom, Stop} mode;
 
 long lastPrint = 0;
+int firstPrint = 0;
 
 void setup(void) {
 	buttonsInit();
 	millis_init();
 	lcdDisplayInit();
+	remoteControlInit();
 	
 }
 
 void loop(void) {
 	if (scrollInMenu()) {
+		if (firstPrint == 0) {
+			firstPrint = 1;
+		}
+		
 		if (mode < Autonoom) {
 			mode++;
 			} else if (mode == Autonoom) {
@@ -35,20 +41,20 @@ void loop(void) {
 		}
 	}
 	
-	if (lastPrint + 1000 < millis()) {
+	if ((lastPrint + 1000 < millis()) && firstPrint) {
 		printModeScreen(mode);
 		lastPrint = millis();
 	}
 	
 	
-	if (selectMode()) {
+	 if (selectMode()) {
 		PORTB |= (1<<DDB5);
 		} else if (scrollInMenu()) {
 		PORTB |= (1<<DDB5);
-		} else {
-		PORTB &= ~(1<<DDB5);
-	}
+		} 
 	
+	
+	remoteControl();
 }
 
 int main(void)

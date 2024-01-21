@@ -30,6 +30,11 @@ void remoteControl(void)
 		{
 
 			case '1':
+				if ((PORTB & (1<<PINB5)) == 0) {
+					PORTB |= (1<<PINB5);
+					} else if (PORTB & (1<<(PINB5))) {
+					PORTB &= ~(1<<PINB5);
+				}
 			break;
 			
 			case 'h':

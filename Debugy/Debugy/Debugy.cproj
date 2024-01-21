@@ -150,10 +150,19 @@
     <Compile Include="buttons.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="i2cmaster.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LcdDisplay.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LcdDisplay.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd_i2cmaster.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -163,6 +172,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Millis.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Motor.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RemoteControl.c">
@@ -175,6 +187,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="SoftSerial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="twimaster.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
