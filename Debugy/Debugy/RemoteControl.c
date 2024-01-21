@@ -14,13 +14,21 @@
 #include <avr/interrupt.h>
 #include "SoftSerial.h"
 
+//creates struct for the motor speed and direction
+struct motorSettings  {
+	int speed;
+	char direction;
+};
+
 void remoteControlInit(void) {
 	SoftSerialInit();
 }
 
-void remoteControl(void)
+struct motorSettings remoteControl(void)
 {
 	sei();
+	//make a stucture variable of structure motorSettings
+	struct motorSettings motor;
 		
 	if(SoftSerialUnread() > 0)
 	{
@@ -29,24 +37,17 @@ void remoteControl(void)
 		switch( data )
 		{
 
-			case '1':
-				if ((PORTB & (1<<PINB5)) == 0) {
-					PORTB |= (1<<PINB5);
-					} else if (PORTB & (1<<(PINB5))) {
-					PORTB &= ~(1<<PINB5);
-				}
+			case 'F':
+				motor.direction = 'F';
 			break;
 			
-			case 'h':
-			break;
-
-			case 'H':
-			break;
-
-			default:
+			case 'S':
+				motor.direction = 'S';
+				motor.speed = 0;
 			break;
 		}
 
 	}
+	return motor;
 }
 

@@ -12,18 +12,33 @@
 #include "lcdDisplay.h"
 #include "buttons.h"
 #include "RemoteControl.h"
+#include "Motor.h"
 
 enum Modes {Slave, Bluetooth, Autonoom, Stop} mode;
+	
+//creates struct for the motor speed and direction	
+struct motorSettings  {
+	int speed;
+	char direction;
+};
+
+//make a stucture variable of structure motorSettings
+struct motorSettings motor;
 
 long lastPrint = 0;
 int firstPrint = 0;
 
 void setup(void) {
+	//init the different modules
 	buttonsInit();
 	millis_init();
 	lcdDisplayInit();
 	remoteControlInit();
-	
+	motorInit();
+
+	//assings value to motor
+	motor.speed = 0;
+	motor.direction = 'S';
 }
 
 void loop(void) {
@@ -54,7 +69,8 @@ void loop(void) {
 		} 
 	
 	
-	remoteControl();
+	motor = remoteControl();
+	motorFunctie(motor.speed, motor.direction);
 }
 
 int main(void)

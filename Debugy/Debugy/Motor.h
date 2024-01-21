@@ -9,7 +9,8 @@
 #ifndef MOTOR_H_
 #define MOTOR_H_
 
-
+void motorFunctie(int speed, char dir);
+void motorInit(void);
 
 
 

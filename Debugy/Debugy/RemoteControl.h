@@ -10,6 +10,6 @@
 #define REMOTECONTROL_H_
 
 void remoteControlInit(void);
-void remoteControl(void);
+struct motorSettings remoteControl(void);
 
 #endif /* REMOTECONTROL_H_ */
