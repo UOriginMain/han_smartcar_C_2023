@@ -44,6 +44,7 @@ C_SRCS +=  \
 ../Millis.c \
 ../Motor.c \
 ../RemoteControl.c \
+../SlaveMode.c \
 ../SoftSerial.c \
 ../twimaster.c
 
@@ -62,6 +63,7 @@ main.o \
 Millis.o \
 Motor.o \
 RemoteControl.o \
+SlaveMode.o \
 SoftSerial.o \
 twimaster.o
 
@@ -73,6 +75,7 @@ main.o \
 Millis.o \
 Motor.o \
 RemoteControl.o \
+SlaveMode.o \
 SoftSerial.o \
 twimaster.o
 
@@ -84,6 +87,7 @@ main.d \
 Millis.d \
 Motor.d \
 RemoteControl.d \
+SlaveMode.d \
 SoftSerial.d \
 twimaster.d
 
@@ -95,6 +99,7 @@ main.d \
 Millis.d \
 Motor.d \
 RemoteControl.d \
+SlaveMode.d \
 SoftSerial.d \
 twimaster.d
 
@@ -155,6 +160,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./RemoteControl.o: .././RemoteControl.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./SlaveMode.o: .././SlaveMode.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

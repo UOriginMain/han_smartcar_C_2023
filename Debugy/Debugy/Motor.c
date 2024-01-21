@@ -6,7 +6,11 @@
  */
 #include <avr/io.h>
 
-void motorFunctie(int speed, int dir) {
+
+#define blinkerLeft DDD4
+#define BlinkerRight DDD5
+
+void motorFunctie(int speed, char dir) {
 	switch (dir) {
 		
 		//forwards
@@ -116,4 +120,4 @@ void motorInit(void) {
 	// BOTTOM (non-inverting mode)
 	// COM1B[1:0] = 11 : Set OC1A/OC1B on compare match, clear OC1A/OC1B at
 	// BOTTOM (non-inverting mode)
-	TCCR1A |= (1<<COM1A1) | (1<<COM1A0) | (1<<COM1B1) | (1<<COM1B0);}
+	TCCR1A |= (1<<COM1A1) | (1<<COM1A0) | (1<<COM1B1) | (1<<COM1B0);		//sets the pins for the blinker left and right too outout	DDRD |= (1<<blinkerLeft) | (1<<BlinkerRight);}

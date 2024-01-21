@@ -10,7 +10,7 @@
 #define BUTTONS_H_
 
 void buttonsInit(void);
-int scrollInMenu(void);
-int selectMode(void);
+bool scrollInMenu(void);
+bool selectMode(void);
 
 #endif /* BUTTONS_H_ */

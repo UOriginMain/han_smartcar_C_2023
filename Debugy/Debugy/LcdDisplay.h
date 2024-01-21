@@ -9,9 +9,10 @@
 #ifndef LCDDISPLAY_H_
 #define LCDDISPLAY_H_
 
-void lcdDisplayInit(void);
-void printWelcomeScreen(void);
-void printModeScreen(int);
+	void lcdDisplayInit(void);
+	void printWelcomeScreen(void);
+	void printModeScreen(int);
+	void printMenuScreen(int);
 
 
 

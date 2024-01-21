@@ -14,6 +14,7 @@
 #include <avr/interrupt.h>
 #include "SoftSerial.h"
 
+
 //creates struct for the motor speed and direction
 struct motorSettings  {
 	int speed;
@@ -36,17 +37,49 @@ struct motorSettings remoteControl(void)
 			
 		switch( data )
 		{
-
 			case 'F':
-				motor.direction = 'F';
+			motor.direction = 'F';
+			motor.speed = 3000;
 			break;
 			
 			case 'S':
-				motor.direction = 'S';
-				motor.speed = 0;
+			motor.direction = 'S';
+			motor.speed = 0;
 			break;
+			
+			case 'R':
+			motor.direction = 'r';
+			motor.speed = 3000;
+			break;
+			
+			case 'L':
+			motor.direction = 'l';
+			motor.speed = 3000;
+			break;
+			
+			case 'B':
+			motor.direction = 'B';
+			motor.speed = 3000;
+			break;
+			
+			case 'T':
+			motor.direction = 'L';
+			motor.speed = 2500;
+			break;
+			
+			case 't':
+			motor.direction = 'R'
+			motor.speed = 2500;
+			break
+			
+			case 'V':
+			motor.speed += 250;
+			break;
+			
+			case 'v':
+			motor.speed -= 250;
+			break;			
 		}
-
 	}
 	return motor;
 }

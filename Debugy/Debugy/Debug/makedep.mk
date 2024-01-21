@@ -16,6 +16,8 @@ Motor.c
 
 RemoteControl.c
 
+SlaveMode.c
+
 SoftSerial.c
 
 twimaster.c
